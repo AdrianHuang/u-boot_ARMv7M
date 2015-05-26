@@ -74,14 +74,18 @@
 
 #define CONFIG_BAUDRATE			115200
 #define CONFIG_BOOTARGS							\
-	"console=ttystm0,115200 earlyprintk consoleblank=0 ignore_loglevel"
+	"console=ttyS0,115200 earlyprintk consoleblank=0 ignore_loglevel"
 #define CONFIG_BOOTCOMMAND						\
 	"run bootcmd_romfs"
+
+/*
+ * Short-cuts to some useful commands (macros)
+ */
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"bootargs_romfs=uclinux.physaddr=0x08180000 root=/dev/mtdblock0\0" \
 	"bootcmd_romfs=setenv bootargs ${bootargs} ${bootargs_romfs};" \
-	"bootm 0x08044000 - 0x08042000\0"
+	"bootm 0x08020000 - 0x08160000\0"
 
 #define CONFIG_BOOTDELAY		3
 #define CONFIG_AUTOBOOT
